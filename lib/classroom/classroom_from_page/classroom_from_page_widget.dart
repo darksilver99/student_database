@@ -120,7 +120,8 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: BorderRadius.circular(16.0),
                         ),
                         child: Padding(
@@ -131,7 +132,7 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 8.0),
+                                    8.0, 0.0, 8.0, 16.0),
                                 child: TextFormField(
                                   controller: _model.yearsController,
                                   focusNode: _model.yearsFocusNode,
@@ -176,8 +177,8 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).accent4,
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
@@ -192,7 +193,7 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 8.0),
+                                    8.0, 0.0, 8.0, 16.0),
                                 child: TextFormField(
                                   controller: _model.termController,
                                   focusNode: _model.termFocusNode,
@@ -237,8 +238,8 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).accent4,
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
@@ -253,7 +254,7 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 8.0),
+                                    8.0, 0.0, 8.0, 16.0),
                                 child: TextFormField(
                                   controller: _model.roomController,
                                   focusNode: _model.roomFocusNode,
@@ -298,8 +299,8 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).accent4,
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
@@ -309,7 +310,7 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 8.0, 8.0),
+                                    8.0, 0.0, 8.0, 16.0),
                                 child: TextFormField(
                                   controller: _model.detailController,
                                   focusNode: _model.detailFocusNode,
@@ -354,8 +355,8 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).accent4,
                                   ),
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
@@ -411,7 +412,7 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                                   text: 'บันทึกข้อมูล',
                                   options: FFButtonOptions(
                                     width: double.infinity,
-                                    height: 48.0,
+                                    height: 56.0,
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 0.0, 24.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
