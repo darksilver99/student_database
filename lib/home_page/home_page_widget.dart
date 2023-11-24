@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -180,7 +181,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           ),
                           child: Container(
                             width: double.infinity,
-                            height: 200.0,
+                            height: functions.getHeigthBoxInHomePage(
+                                MediaQuery.sizeOf(context).width, 0.5),
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -208,7 +210,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           ),
                           child: Container(
                             width: double.infinity,
-                            height: 120.0,
+                            height: functions.getHeigthBoxInHomePage(
+                                MediaQuery.sizeOf(context).width, 0.25),
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -236,7 +239,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           ),
                           child: Container(
                             width: double.infinity,
-                            height: 200.0,
+                            height: functions.getHeigthBoxInHomePage(
+                                MediaQuery.sizeOf(context).width, 0.5),
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -264,7 +268,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           ),
                           child: Container(
                             width: double.infinity,
-                            height: 200.0,
+                            height: functions.getHeigthBoxInHomePage(
+                                MediaQuery.sizeOf(context).width, 0.5),
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -292,7 +297,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                           ),
                           child: Container(
                             width: double.infinity,
-                            height: 120.0,
+                            height: functions.getHeigthBoxInHomePage(
+                                MediaQuery.sizeOf(context).width, 0.2),
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
