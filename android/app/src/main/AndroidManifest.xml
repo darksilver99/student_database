@@ -5,7 +5,7 @@
 
 
     <application
-        android:label="StudentDatabase"
+        android:label="จัดการข้อมูลนักเรียน"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
