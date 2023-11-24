@@ -2,15 +2,18 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'more_page_model.dart';
 export 'more_page_model.dart';
 
 class MorePageWidget extends StatefulWidget {
-  const MorePageWidget({super.key});
+  const MorePageWidget({Key? key}) : super(key: key);
 
   @override
   _MorePageWidgetState createState() => _MorePageWidgetState();
@@ -29,7 +32,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 800.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
         ),
@@ -37,8 +40,8 @@ class _MorePageWidgetState extends State<MorePageWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, 12.000000000000014),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -56,8 +59,8 @@ class _MorePageWidgetState extends State<MorePageWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: const Offset(0.0, 12.000000000000014),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -75,8 +78,8 @@ class _MorePageWidgetState extends State<MorePageWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 1000.ms,
-          begin: const Offset(0.0, 12.000000000000014),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -94,8 +97,8 @@ class _MorePageWidgetState extends State<MorePageWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 1200.ms,
-          begin: const Offset(0.0, 12.000000000000014),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -113,8 +116,8 @@ class _MorePageWidgetState extends State<MorePageWidget>
           curve: Curves.easeOut,
           delay: 0.ms,
           duration: 1400.ms,
-          begin: const Offset(0.0, 12.000000000000014),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, 60.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -156,36 +159,36 @@ class _MorePageWidgetState extends State<MorePageWidget>
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Function() navigate = () {};
+                        Function() _navigate = () {};
                         var confirmDialogResponse = await showDialog<bool>(
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('ออกจากระบบ?'),
+                                  title: Text('ออกจากระบบ?'),
                                   actions: [
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, false),
-                                      child: const Text('ยกเลิก'),
+                                      child: Text('ยกเลิก'),
                                     ),
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, true),
-                                      child: const Text('ยืนยัน'),
+                                      child: Text('ยืนยัน'),
                                     ),
                                   ],
                                 );
@@ -197,13 +200,13 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           await authManager.signOut();
                           GoRouter.of(context).clearRedirectLocation();
 
-                          navigate = () => context.goNamedAuth(
+                          _navigate = () => context.goNamedAuth(
                               'AuthenticationPage', context.mounted);
                         } else {
                           setState(() {});
                         }
 
-                        navigate();
+                        _navigate();
                       },
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -213,7 +216,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -226,7 +229,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'ออกจากระบบ',
@@ -245,29 +248,29 @@ class _MorePageWidgetState extends State<MorePageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Function() navigate = () {};
+                        Function() _navigate = () {};
                         var confirmDialogResponse = await showDialog<bool>(
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('ออกจากระบบ?'),
+                                  title: Text('ออกจากระบบ?'),
                                   actions: [
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, false),
-                                      child: const Text('ยกเลิก'),
+                                      child: Text('ยกเลิก'),
                                     ),
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, true),
-                                      child: const Text('ยืนยัน'),
+                                      child: Text('ยืนยัน'),
                                     ),
                                   ],
                                 );
@@ -279,13 +282,13 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           await authManager.signOut();
                           GoRouter.of(context).clearRedirectLocation();
 
-                          navigate = () => context.goNamedAuth(
+                          _navigate = () => context.goNamedAuth(
                               'AuthenticationPage', context.mounted);
                         } else {
                           setState(() {});
                         }
 
-                        navigate();
+                        _navigate();
                       },
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -295,7 +298,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -308,7 +311,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'ออกจากระบบ',
@@ -327,29 +330,29 @@ class _MorePageWidgetState extends State<MorePageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Function() navigate = () {};
+                        Function() _navigate = () {};
                         var confirmDialogResponse = await showDialog<bool>(
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('ออกจากระบบ?'),
+                                  title: Text('ออกจากระบบ?'),
                                   actions: [
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, false),
-                                      child: const Text('ยกเลิก'),
+                                      child: Text('ยกเลิก'),
                                     ),
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, true),
-                                      child: const Text('ยืนยัน'),
+                                      child: Text('ยืนยัน'),
                                     ),
                                   ],
                                 );
@@ -361,13 +364,13 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           await authManager.signOut();
                           GoRouter.of(context).clearRedirectLocation();
 
-                          navigate = () => context.goNamedAuth(
+                          _navigate = () => context.goNamedAuth(
                               'AuthenticationPage', context.mounted);
                         } else {
                           setState(() {});
                         }
 
-                        navigate();
+                        _navigate();
                       },
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -377,7 +380,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -390,7 +393,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'ออกจากระบบ',
@@ -409,29 +412,29 @@ class _MorePageWidgetState extends State<MorePageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Function() navigate = () {};
+                        Function() _navigate = () {};
                         var confirmDialogResponse = await showDialog<bool>(
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('ออกจากระบบ?'),
+                                  title: Text('ออกจากระบบ?'),
                                   actions: [
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, false),
-                                      child: const Text('ยกเลิก'),
+                                      child: Text('ยกเลิก'),
                                     ),
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, true),
-                                      child: const Text('ยืนยัน'),
+                                      child: Text('ยืนยัน'),
                                     ),
                                   ],
                                 );
@@ -443,13 +446,13 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           await authManager.signOut();
                           GoRouter.of(context).clearRedirectLocation();
 
-                          navigate = () => context.goNamedAuth(
+                          _navigate = () => context.goNamedAuth(
                               'AuthenticationPage', context.mounted);
                         } else {
                           setState(() {});
                         }
 
-                        navigate();
+                        _navigate();
                       },
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -459,7 +462,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -472,7 +475,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'ออกจากระบบ',
@@ -491,29 +494,29 @@ class _MorePageWidgetState extends State<MorePageWidget>
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        Function() navigate = () {};
+                        Function() _navigate = () {};
                         var confirmDialogResponse = await showDialog<bool>(
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('ออกจากระบบ?'),
+                                  title: Text('ออกจากระบบ?'),
                                   actions: [
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, false),
-                                      child: const Text('ยกเลิก'),
+                                      child: Text('ยกเลิก'),
                                     ),
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, true),
-                                      child: const Text('ยืนยัน'),
+                                      child: Text('ยืนยัน'),
                                     ),
                                   ],
                                 );
@@ -525,13 +528,13 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           await authManager.signOut();
                           GoRouter.of(context).clearRedirectLocation();
 
-                          navigate = () => context.goNamedAuth(
+                          _navigate = () => context.goNamedAuth(
                               'AuthenticationPage', context.mounted);
                         } else {
                           setState(() {});
                         }
 
-                        navigate();
+                        _navigate();
                       },
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -541,7 +544,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 16.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -554,7 +557,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'ออกจากระบบ',
