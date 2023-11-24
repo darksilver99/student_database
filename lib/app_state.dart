@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -24,31 +25,31 @@ class FFAppState extends ChangeNotifier {
 
   List<String> _testDataList = [];
   List<String> get testDataList => _testDataList;
-  set testDataList(List<String> value) {
-    _testDataList = value;
+  set testDataList(List<String> _value) {
+    _testDataList = _value;
   }
 
-  void addToTestDataList(String value) {
-    _testDataList.add(value);
+  void addToTestDataList(String _value) {
+    _testDataList.add(_value);
   }
 
-  void removeFromTestDataList(String value) {
-    _testDataList.remove(value);
+  void removeFromTestDataList(String _value) {
+    _testDataList.remove(_value);
   }
 
-  void removeAtIndexFromTestDataList(int index) {
-    _testDataList.removeAt(index);
+  void removeAtIndexFromTestDataList(int _index) {
+    _testDataList.removeAt(_index);
   }
 
   void updateTestDataListAtIndex(
-    int index,
+    int _index,
     String Function(String) updateFn,
   ) {
-    _testDataList[index] = updateFn(_testDataList[index]);
+    _testDataList[_index] = updateFn(_testDataList[_index]);
   }
 
-  void insertAtIndexInTestDataList(int index, String value) {
-    _testDataList.insert(index, value);
+  void insertAtIndexInTestDataList(int _index, String _value) {
+    _testDataList.insert(_index, _value);
   }
 }
 
