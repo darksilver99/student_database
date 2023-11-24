@@ -12,11 +12,12 @@ class ConfirmViewWidget extends StatefulWidget {
   const ConfirmViewWidget({
     Key? key,
     required this.title,
-    this.detail,
-  }) : super(key: key);
+    String? detail,
+  })  : this.detail = detail ?? '',
+        super(key: key);
 
   final String? title;
-  final String? detail;
+  final String detail;
 
   @override
   _ConfirmViewWidgetState createState() => _ConfirmViewWidgetState();
@@ -82,17 +83,18 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        widget.detail!,
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                    ],
-                  ),
+                  if (widget.detail != null && widget.detail != '')
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          widget.detail,
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
+                      ],
+                    ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
