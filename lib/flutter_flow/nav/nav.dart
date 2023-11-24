@@ -106,6 +106,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'MorePage')
               : MorePageWidget(),
+        ),
+        FFRoute(
+          name: 'ClassroomListPage',
+          path: '/classroomListPage',
+          builder: (context, params) => ClassroomListPageWidget(),
+        ),
+        FFRoute(
+          name: 'ClassroomFromPage',
+          path: '/classroomFromPage',
+          builder: (context, params) => ClassroomFromPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
