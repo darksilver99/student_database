@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "879004796994",
+    "project_id": "studentdatabase-8e5fb",
+    "storage_bucket": "studentdatabase-8e5fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879004796994:android:87e29d7b1dc868d33f85db",
+        "android_client_info": {
+          "package_name": "com.silver.studentdatabase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnt-ZyYB-xUUAKDNiEocsoR4x6wd1xiHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
