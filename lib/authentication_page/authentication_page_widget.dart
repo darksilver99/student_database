@@ -607,7 +607,7 @@ class _AuthenticationPageWidgetState extends State<AuthenticationPageWidget>
                                                                   .titleSmall
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Manrope',
+                                                                        'Montserrat',
                                                                     color: Colors
                                                                         .white,
                                                                   ),
@@ -670,7 +670,7 @@ class _AuthenticationPageWidgetState extends State<AuthenticationPageWidget>
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Manrope',
+                                                                        'Montserrat',
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
@@ -1427,7 +1427,7 @@ class _AuthenticationPageWidgetState extends State<AuthenticationPageWidget>
                                                                     .titleSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Manrope',
+                                                                          'Montserrat',
                                                                       color: Colors
                                                                           .white,
                                                                     ),

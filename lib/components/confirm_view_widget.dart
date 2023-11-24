@@ -57,7 +57,7 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Container(
-          width: MediaQuery.sizeOf(context).width * 0.95,
+          width: MediaQuery.sizeOf(context).width * 0.85,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             borderRadius: BorderRadius.circular(16.0),
@@ -76,7 +76,7 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
                         widget.title!,
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Manrope',
+                              fontFamily: 'Montserrat',
                               fontSize: 22.0,
                             ),
                       ),
@@ -118,7 +118,7 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Manrope',
+                                      fontFamily: 'Montserrat',
                                       color: Colors.white,
                                     ),
                                 elevation: 3.0,
@@ -150,7 +150,7 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Manrope',
+                                      fontFamily: 'Montserrat',
                                       color: Colors.white,
                                     ),
                                 elevation: 3.0,
