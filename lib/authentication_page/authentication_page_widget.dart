@@ -1359,7 +1359,7 @@ class _AuthenticationPageWidgetState extends State<AuthenticationPageWidget>
                                                                     .createAccountWithEmail(
                                                               context,
                                                               _model
-                                                                  .emailAddressController
+                                                                  .emailAddressCreateController
                                                                   .text,
                                                               _model
                                                                   .passwordCreateController
