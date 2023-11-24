@@ -173,26 +173,36 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   () => Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
-                        child: Material(
-                          color: Colors.transparent,
-                          elevation: 3.0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                          child: Container(
-                            width: double.infinity,
-                            height: functions.getHeigthBoxInHomePage(
-                                MediaQuery.sizeOf(context).width, 0.5),
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('ClassroomListPage');
+                          },
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 3.0,
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16.0),
                             ),
-                            child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Text(
-                                '1',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                            child: Container(
+                              width: double.infinity,
+                              height: functions.getHeigthBoxInHomePage(
+                                  MediaQuery.sizeOf(context).width, 0.5),
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              child: Align(
+                                alignment: AlignmentDirectional(0.00, 0.00),
+                                child: Text(
+                                  '1',
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
                               ),
                             ),
                           ),

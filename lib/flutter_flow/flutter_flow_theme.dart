@@ -206,63 +206,63 @@ class ThemeTypography extends Typography {
         'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 22.0,
+        fontSize: 26.0,
       );
   String get titleMediumFamily => 'Montserrat';
   TextStyle get titleMedium => GoogleFonts.getFont(
         'Montserrat',
         color: theme.info,
         fontWeight: FontWeight.w500,
-        fontSize: 16.0,
+        fontSize: 24.0,
       );
   String get titleSmallFamily => 'Montserrat';
   TextStyle get titleSmall => GoogleFonts.getFont(
         'Montserrat',
         color: theme.info,
         fontWeight: FontWeight.w500,
-        fontSize: 14.0,
+        fontSize: 22.0,
       );
   String get labelLargeFamily => 'Montserrat';
   TextStyle get labelLarge => GoogleFonts.getFont(
         'Montserrat',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 16.0,
+        fontSize: 24.0,
       );
   String get labelMediumFamily => 'Montserrat';
   TextStyle get labelMedium => GoogleFonts.getFont(
         'Montserrat',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 14.0,
+        fontSize: 22.0,
       );
   String get labelSmallFamily => 'Montserrat';
   TextStyle get labelSmall => GoogleFonts.getFont(
         'Montserrat',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 12.0,
+        fontSize: 20.0,
       );
   String get bodyLargeFamily => 'Montserrat';
   TextStyle get bodyLarge => GoogleFonts.getFont(
         'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 16.0,
+        fontSize: 24.0,
       );
   String get bodyMediumFamily => 'Montserrat';
   TextStyle get bodyMedium => GoogleFonts.getFont(
         'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 14.0,
+        fontSize: 22.0,
       );
   String get bodySmallFamily => 'Montserrat';
   TextStyle get bodySmall => GoogleFonts.getFont(
         'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 12.0,
+        fontSize: 20.0,
       );
 }
 
