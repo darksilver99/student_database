@@ -97,7 +97,7 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
                     ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(8.0, 16.0, 8.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(8.0, 32.0, 8.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -122,6 +122,7 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: Colors.white,
+                                      fontSize: 20.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(
@@ -154,6 +155,7 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: Colors.white,
+                                      fontSize: 20.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(
