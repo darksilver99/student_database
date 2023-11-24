@@ -357,12 +357,9 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                                     fillColor: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        lineHeight: 5.0,
-                                      ),
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  maxLines: 5,
                                   keyboardType: TextInputType.multiline,
                                   validator: _model.detailControllerValidator
                                       .asValidator(context),
