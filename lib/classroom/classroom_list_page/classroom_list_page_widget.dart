@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/total_student_view_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -189,8 +190,12 @@ class _ClassroomListPageWidgetState extends State<ClassroomListPageWidget> {
               Expanded(
                 child: StreamBuilder<List<ClassRoomListRecord>>(
                   stream: queryClassRoomListRecord(
-                    queryBuilder: (classRoomListRecord) =>
-                        classRoomListRecord.orderBy('room'),
+                    queryBuilder: (classRoomListRecord) => classRoomListRecord
+                        .where(
+                          'create_by',
+                          isEqualTo: currentUserReference,
+                        )
+                        .orderBy('room'),
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
@@ -302,6 +307,8 @@ class _ClassroomListPageWidgetState extends State<ClassroomListPageWidget> {
                                         TotalStudentViewWidget(
                                           key: Key(
                                               'Keyys2_${listViewIndex}_of_${listViewClassRoomListRecordList.length}'),
+                                          roomParameter:
+                                              listViewClassRoomListRecord,
                                         ),
                                       ],
                                     ),
