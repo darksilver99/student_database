@@ -161,6 +161,20 @@ class _ClassroomListPageWidgetState extends State<ClassroomListPageWidget> {
                               _model.yearSelected =
                                   functions.stringToInt(_model.dropDownValue1);
                             });
+                            setState(() {
+                              _model.dropDownValueController2?.reset();
+                            });
+                            _model.rs2 = await actions.getListTerm(
+                              _model.dropDownValue1,
+                            );
+                            setState(() {
+                              _model.termSelected = getJsonField(
+                                _model.rs2,
+                                r'''$.term''',
+                              );
+                            });
+
+                            setState(() {});
                           },
                           width: 300.0,
                           height: 50.0,
@@ -644,6 +658,157 @@ class _ClassroomListPageWidgetState extends State<ClassroomListPageWidget> {
                                           TotalStudentViewWidget(
                                             key: Key(
                                                 'Keysae_${listViewIndex}_of_${listViewClassRoomListRecordList.length}'),
+                                            roomParameter:
+                                                listViewClassRoomListRecord,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
+                ),
+              if ((_model.yearSelected != null) &&
+                  (_model.termSelected != null))
+                Expanded(
+                  child: StreamBuilder<List<ClassRoomListRecord>>(
+                    stream: queryClassRoomListRecord(
+                      queryBuilder: (classRoomListRecord) => classRoomListRecord
+                          .where(
+                            'create_by',
+                            isEqualTo: currentUserReference,
+                          )
+                          .where(
+                            'term',
+                            isEqualTo: _model.termSelected,
+                          )
+                          .where(
+                            'years',
+                            isEqualTo: _model.yearSelected,
+                          )
+                          .orderBy('room'),
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
+                      List<ClassRoomListRecord>
+                          listViewClassRoomListRecordList = snapshot.data!;
+                      if (listViewClassRoomListRecordList.isEmpty) {
+                        return NoDataViewWidget();
+                      }
+                      return ListView.builder(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: listViewClassRoomListRecordList.length,
+                        itemBuilder: (context, listViewIndex) {
+                          final listViewClassRoomListRecord =
+                              listViewClassRoomListRecordList[listViewIndex];
+                          return Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 8.0, 8.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(
+                                  'ClassroomManagePage',
+                                  queryParameters: {
+                                    'classroomParameter': serializeParam(
+                                      listViewClassRoomListRecord,
+                                      ParamType.Document,
+                                    ),
+                                  }.withoutNulls,
+                                  extra: <String, dynamic>{
+                                    'classroomParameter':
+                                        listViewClassRoomListRecord,
+                                  },
+                                );
+                              },
+                              child: Card(
+                                clipBehavior: Clip.antiAliasWithSaveLayer,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                elevation: 4.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 16.0, 16.0, 16.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  listViewClassRoomListRecord
+                                                      .room,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        fontSize: 28.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'ปีการศึกษา ${listViewClassRoomListRecord.years.toString()}/${listViewClassRoomListRecord.term.toString()}',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontSize: 18.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          TotalStudentViewWidget(
+                                            key: Key(
+                                                'Key3cv_${listViewIndex}_of_${listViewClassRoomListRecordList.length}'),
                                             roomParameter:
                                                 listViewClassRoomListRecord,
                                           ),

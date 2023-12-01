@@ -50,6 +50,8 @@ class ClassroomListPageModel extends FlutterFlowModel<ClassroomListPageWidget> {
   // State field(s) for DropDown widget.
   String? dropDownValue1;
   FormFieldController<String>? dropDownValueController1;
+  // Stores action output result for [Custom Action - getListTerm] action in DropDown widget.
+  dynamic? rs2;
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
