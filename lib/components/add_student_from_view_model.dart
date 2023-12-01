@@ -44,11 +44,24 @@ class AddStudentFromViewModel
     return null;
   }
 
+  // State field(s) for no widget.
+  FocusNode? noFocusNode;
+  TextEditingController? noController;
+  String? Function(BuildContext, String?)? noControllerValidator;
+  String? _noControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Field is required';
+    }
+
+    return null;
+  }
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
     firstnameControllerValidator = _firstnameControllerValidator;
     lastnameControllerValidator = _lastnameControllerValidator;
+    noControllerValidator = _noControllerValidator;
   }
 
   void dispose() {
@@ -57,6 +70,9 @@ class AddStudentFromViewModel
 
     lastnameFocusNode?.dispose();
     lastnameController?.dispose();
+
+    noFocusNode?.dispose();
+    noController?.dispose();
   }
 
   /// Action blocks are added here.

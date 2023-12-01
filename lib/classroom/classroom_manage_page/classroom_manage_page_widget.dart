@@ -191,7 +191,7 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                         'room_ref',
                         isEqualTo: widget.classroomParameter?.reference,
                       )
-                      .orderBy('first_name'),
+                      .orderBy('no'),
                 ),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
@@ -238,7 +238,7 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      '${listViewStudentListRecord.prefixName} ${listViewStudentListRecord.firstName} ${listViewStudentListRecord.lastName}',
+                                      '${listViewStudentListRecord.no.toString()} ${listViewStudentListRecord.prefixName} ${listViewStudentListRecord.firstName} ${listViewStudentListRecord.lastName}',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),

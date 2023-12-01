@@ -61,6 +61,11 @@ class StudentListRecord extends FirestoreRecord {
   DocumentReference? get roomRef => _roomRef;
   bool hasRoomRef() => _roomRef != null;
 
+  // "no" field.
+  int? _no;
+  int get no => _no ?? 0;
+  bool hasNo() => _no != null;
+
   void _initializeFields() {
     _createDate = snapshotData['create_date'] as DateTime?;
     _createBy = snapshotData['create_by'] as DocumentReference?;
@@ -71,6 +76,7 @@ class StudentListRecord extends FirestoreRecord {
     _firstName = snapshotData['first_name'] as String?;
     _lastName = snapshotData['last_name'] as String?;
     _roomRef = snapshotData['room_ref'] as DocumentReference?;
+    _no = castToType<int>(snapshotData['no']);
   }
 
   static CollectionReference get collection =>
@@ -117,6 +123,7 @@ Map<String, dynamic> createStudentListRecordData({
   String? firstName,
   String? lastName,
   DocumentReference? roomRef,
+  int? no,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -129,6 +136,7 @@ Map<String, dynamic> createStudentListRecordData({
       'first_name': firstName,
       'last_name': lastName,
       'room_ref': roomRef,
+      'no': no,
     }.withoutNulls,
   );
 
@@ -148,7 +156,8 @@ class StudentListRecordDocumentEquality implements Equality<StudentListRecord> {
         e1?.prefixName == e2?.prefixName &&
         e1?.firstName == e2?.firstName &&
         e1?.lastName == e2?.lastName &&
-        e1?.roomRef == e2?.roomRef;
+        e1?.roomRef == e2?.roomRef &&
+        e1?.no == e2?.no;
   }
 
   @override
@@ -161,7 +170,8 @@ class StudentListRecordDocumentEquality implements Equality<StudentListRecord> {
         e?.prefixName,
         e?.firstName,
         e?.lastName,
-        e?.roomRef
+        e?.roomRef,
+        e?.no
       ]);
 
   @override

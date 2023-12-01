@@ -45,6 +45,9 @@ class _AddStudentFromViewWidgetState extends State<AddStudentFromViewWidget> {
 
     _model.lastnameController ??= TextEditingController();
     _model.lastnameFocusNode ??= FocusNode();
+
+    _model.noController ??= TextEditingController();
+    _model.noFocusNode ??= FocusNode();
   }
 
   @override
@@ -210,6 +213,60 @@ class _AddStudentFromViewWidgetState extends State<AddStudentFromViewWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 16.0),
+                  child: TextFormField(
+                    controller: _model.noController,
+                    focusNode: _model.noFocusNode,
+                    textCapitalization: TextCapitalization.none,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'เลขที่',
+                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      filled: true,
+                      fillColor: FlutterFlowTheme.of(context).accent4,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          fontSize: 22.0,
+                        ),
+                    keyboardType: TextInputType.number,
+                    validator:
+                        _model.noControllerValidator.asValidator(context),
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9]'))
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 16.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       if (_model.formKey.currentState == null ||
@@ -245,6 +302,7 @@ class _AddStudentFromViewWidgetState extends State<AddStudentFromViewWidget> {
                             firstName: _model.firstnameController.text,
                             lastName: _model.lastnameController.text,
                             roomRef: widget.roomParameter?.reference,
+                            no: int.tryParse(_model.noController.text),
                           ));
                       ScaffoldMessenger.of(context).clearSnackBars();
                       ScaffoldMessenger.of(context).showSnackBar(
