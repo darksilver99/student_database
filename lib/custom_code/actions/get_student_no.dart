@@ -10,5 +10,9 @@ import 'package:flutter/material.dart';
 
 Future<int> getStudentNo(DocumentReference? roomRef) async {
   // Add your function code here!
-  return 1;
+  var rs = await FirebaseFirestore.instance
+      .collection('student_list')
+      .where('room_ref', isEqualTo: roomRef)
+      .get();
+  return (rs.size + 1);
 }
