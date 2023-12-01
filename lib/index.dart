@@ -7,3 +7,5 @@ export '/classroom/classroom_list_page/classroom_list_page_widget.dart'
     show ClassroomListPageWidget;
 export '/classroom/classroom_from_page/classroom_from_page_widget.dart'
     show ClassroomFromPageWidget;
+export '/classroom/classroom_manage_page/classroom_manage_page_widget.dart'
+    show ClassroomManagePageWidget;

@@ -14,7 +14,6 @@ import 'package:provider/provider.dart';
 class ClassroomFromPageModel extends FlutterFlowModel<ClassroomFromPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for years widget.
   FocusNode? yearsFocusNode;
@@ -66,7 +65,6 @@ class ClassroomFromPageModel extends FlutterFlowModel<ClassroomFromPageWidget> {
   }
 
   void dispose() {
-    unfocusNode.dispose();
     yearsFocusNode?.dispose();
     yearsController?.dispose();
 
