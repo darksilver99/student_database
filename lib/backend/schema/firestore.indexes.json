@@ -1,3 +1,18 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "student_list",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "room_ref",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "first_name",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
 }

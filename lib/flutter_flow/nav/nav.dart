@@ -116,6 +116,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ClassroomFromPage',
           path: '/classroomFromPage',
           builder: (context, params) => ClassroomFromPageWidget(),
+        ),
+        FFRoute(
+          name: 'ClassroomManagePage',
+          path: '/classroomManagePage',
+          asyncParams: {
+            'classroomParameter':
+                getDoc(['class_room_list'], ClassRoomListRecord.fromSnapshot),
+          },
+          builder: (context, params) => ClassroomManagePageWidget(
+            classroomParameter:
+                params.getParam('classroomParameter', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
