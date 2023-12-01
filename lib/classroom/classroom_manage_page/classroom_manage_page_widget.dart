@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -166,19 +167,39 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Expanded(
                     child: Text(
-                      widget.classroomParameter!.room,
+                      'ห้อง ${widget.classroomParameter?.room} ${widget.classroomParameter?.years?.toString()}/${widget.classroomParameter?.term?.toString()}',
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                   ),
-                  Text(
-                    '${widget.classroomParameter?.years?.toString()}/${widget.classroomParameter?.term?.toString()}',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      _model.path = await actions.getExcelFile(
+                        context,
+                        widget.classroomParameter?.reference,
+                      );
+
+                      setState(() {});
+                    },
+                    child: Text(
+                      'Export Excel',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            color: FlutterFlowTheme.of(context).secondary,
+                            fontSize: 16.0,
+                            decoration: TextDecoration.underline,
+                          ),
+                    ),
                   ),
                 ],
               ),
