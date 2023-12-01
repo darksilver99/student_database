@@ -5,8 +5,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -39,6 +41,16 @@ class _AddStudentFromViewWidgetState extends State<AddStudentFromViewWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AddStudentFromViewModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.rs = await actions.getStudentNo(
+        widget.roomParameter?.reference,
+      );
+      setState(() {
+        _model.noController?.text = _model.rs!.toString();
+      });
+    });
 
     _model.firstnameController ??= TextEditingController();
     _model.firstnameFocusNode ??= FocusNode();
@@ -217,6 +229,7 @@ class _AddStudentFromViewWidgetState extends State<AddStudentFromViewWidget> {
                     controller: _model.noController,
                     focusNode: _model.noFocusNode,
                     textCapitalization: TextCapitalization.none,
+                    readOnly: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelText: 'เลขที่',
