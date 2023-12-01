@@ -18,3 +18,12 @@ double? getHeigthBoxInHomePage(
 ) {
   return (width! * heigthNeed!);
 }
+
+int? stringToInt(String? string) {
+  try {
+    int numericValue = int.parse(string!);
+    return numericValue;
+  } catch (e) {
+    print('Error converting string to int: $e');
+  }
+}
