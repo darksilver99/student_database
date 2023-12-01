@@ -157,10 +157,8 @@ class _ClassroomListPageWidgetState extends State<ClassroomListPageWidget> {
                           options: _model.yearsList,
                           onChanged: (val) async {
                             setState(() => _model.dropDownValue1 = val);
-                            setState(() {
-                              _model.yearSelected =
-                                  functions.stringToInt(_model.dropDownValue1);
-                            });
+                            _model.yearSelected =
+                                functions.stringToInt(_model.dropDownValue1);
                             setState(() {
                               _model.dropDownValueController2?.reset();
                             });
@@ -168,10 +166,15 @@ class _ClassroomListPageWidgetState extends State<ClassroomListPageWidget> {
                               _model.dropDownValue1,
                             );
                             setState(() {
-                              _model.termSelected = getJsonField(
+                              _model.termList = (getJsonField(
                                 _model.rs2,
                                 r'''$.term''',
-                              );
+                                true,
+                              ) as List)
+                                  .map<String>((s) => s.toString())
+                                  .toList()!
+                                  .toList()
+                                  .cast<String>();
                             });
 
                             setState(() {});
