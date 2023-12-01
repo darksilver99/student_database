@@ -195,7 +195,7 @@ class _MorePageWidgetState extends State<MorePageWidget>
                                               .requestFocus(_model.unfocusNode)
                                           : FocusScope.of(context).unfocus(),
                                   child: ConfirmViewWidget(
-                                    title: 'ออกจากระบบ ?',
+                                    title: 'ต้องการออกจากระบบ?',
                                   ),
                                 ),
                               );

@@ -58,7 +58,7 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: Container(
-          width: MediaQuery.sizeOf(context).width * 0.85,
+          width: MediaQuery.sizeOf(context).width * 0.65,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             borderRadius: BorderRadius.circular(16.0),
@@ -73,30 +73,15 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.info_rounded,
-                        color: FlutterFlowTheme.of(context).alternate,
-                        size: 36.0,
+                      Text(
+                        widget.title!,
+                        textAlign: TextAlign.center,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              fontSize: 22.0,
+                            ),
                       ),
                     ],
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          widget.title!,
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Montserrat',
-                                    fontSize: 22.0,
-                                  ),
-                        ),
-                      ],
-                    ),
                   ),
                   if (widget.detail != null && widget.detail != '')
                     Row(
