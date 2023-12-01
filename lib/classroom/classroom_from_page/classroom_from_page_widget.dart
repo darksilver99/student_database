@@ -405,6 +405,8 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
+                                        fontSize: 24.0,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(

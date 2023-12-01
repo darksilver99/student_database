@@ -86,7 +86,8 @@ class _AddStudentFromViewWidgetState extends State<AddStudentFromViewWidget> {
                     options: ['ด.ช.', 'ด.ญ.', 'นาย', 'นางสาว'],
                     onChanged: (val) =>
                         setState(() => _model.dropDownValue = val),
-                    width: 300.0,
+                    width: double.infinity,
+                    height: 58.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           color: FlutterFlowTheme.of(context).secondaryText,
@@ -265,7 +266,7 @@ class _AddStudentFromViewWidgetState extends State<AddStudentFromViewWidget> {
                     text: 'บันทึก',
                     options: FFButtonOptions(
                       width: double.infinity,
-                      height: 40.0,
+                      height: 58.0,
                       padding:
                           EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
@@ -275,6 +276,8 @@ class _AddStudentFromViewWidgetState extends State<AddStudentFromViewWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.bold,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
