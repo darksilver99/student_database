@@ -15,6 +15,42 @@
       ]
     },
     {
+      "collectionGroup": "class_room_list",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "create_by",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "years",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "room",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "class_room_list",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "create_by",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "term",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "room",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "student_list",
       "queryScope": "COLLECTION",
       "fields": [

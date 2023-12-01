@@ -253,7 +253,7 @@ class _AddStudentFromViewWidgetState extends State<AddStudentFromViewWidget> {
                             'บันทึกข้อมูลเรียบร้อยแล้ว',
                             style: GoogleFonts.getFont(
                               'Montserrat',
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: FlutterFlowTheme.of(context).info,
                               fontSize: 22.0,
                             ),
                           ),

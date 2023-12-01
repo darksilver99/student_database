@@ -212,7 +212,6 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                       snapshot.data!;
                   return ListView.builder(
                     padding: EdgeInsets.zero,
-                    shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemCount: listViewStudentListRecordList.length,
                     itemBuilder: (context, listViewIndex) {
