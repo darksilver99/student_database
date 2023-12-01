@@ -144,101 +144,141 @@ class _ClassroomListPageWidgetState extends State<ClassroomListPageWidget> {
             children: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                child: Row(
+                child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller: _model.dropDownValueController1 ??=
-                              FormFieldController<String>(null),
-                          options: _model.yearsList,
-                          onChanged: (val) async {
-                            setState(() => _model.dropDownValue1 = val);
-                            _model.yearSelected =
-                                functions.stringToInt(_model.dropDownValue1);
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 4.0, 0.0),
+                            child: FlutterFlowDropDown<String>(
+                              controller: _model.dropDownValueController1 ??=
+                                  FormFieldController<String>(null),
+                              options: _model.yearsList,
+                              onChanged: (val) async {
+                                setState(() => _model.dropDownValue1 = val);
+                                _model.yearSelected = functions
+                                    .stringToInt(_model.dropDownValue1);
+                                setState(() {
+                                  _model.dropDownValueController2?.reset();
+                                });
+                                _model.rs2 = await actions.getListTerm(
+                                  _model.dropDownValue1,
+                                );
+                                setState(() {
+                                  _model.termList = (getJsonField(
+                                    _model.rs2,
+                                    r'''$.term''',
+                                    true,
+                                  ) as List)
+                                      .map<String>((s) => s.toString())
+                                      .toList()!
+                                      .toList()
+                                      .cast<String>();
+                                });
+
+                                setState(() {});
+                              },
+                              width: 300.0,
+                              height: 50.0,
+                              textStyle:
+                                  FlutterFlowTheme.of(context).bodyMedium,
+                              hintText: 'ปีการศึกษา',
+                              icon: Icon(
+                                Icons.keyboard_arrow_down_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 24.0,
+                              ),
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              elevation: 2.0,
+                              borderColor:
+                                  FlutterFlowTheme.of(context).alternate,
+                              borderWidth: 2.0,
+                              borderRadius: 8.0,
+                              margin: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 4.0, 16.0, 4.0),
+                              hidesUnderline: true,
+                              isSearchable: false,
+                              isMultiSelect: false,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                4.0, 0.0, 0.0, 0.0),
+                            child: FlutterFlowDropDown<String>(
+                              controller: _model.dropDownValueController2 ??=
+                                  FormFieldController<String>(null),
+                              options: _model.termList,
+                              onChanged: (val) async {
+                                setState(() => _model.dropDownValue2 = val);
+                                setState(() {
+                                  _model.termSelected = functions
+                                      .stringToInt(_model.dropDownValue2);
+                                });
+                              },
+                              width: 300.0,
+                              height: 50.0,
+                              textStyle:
+                                  FlutterFlowTheme.of(context).bodyMedium,
+                              hintText: 'เทอม',
+                              icon: Icon(
+                                Icons.keyboard_arrow_down_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 24.0,
+                              ),
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              elevation: 2.0,
+                              borderColor:
+                                  FlutterFlowTheme.of(context).alternate,
+                              borderWidth: 2.0,
+                              borderRadius: 8.0,
+                              margin: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 4.0, 16.0, 4.0),
+                              hidesUnderline: true,
+                              isSearchable: false,
+                              isMultiSelect: false,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
                             setState(() {
                               _model.dropDownValueController2?.reset();
-                            });
-                            _model.rs2 = await actions.getListTerm(
-                              _model.dropDownValue1,
-                            );
-                            setState(() {
-                              _model.termList = (getJsonField(
-                                _model.rs2,
-                                r'''$.term''',
-                                true,
-                              ) as List)
-                                  .map<String>((s) => s.toString())
-                                  .toList()!
-                                  .toList()
-                                  .cast<String>();
-                            });
-
-                            setState(() {});
-                          },
-                          width: 300.0,
-                          height: 50.0,
-                          textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                          hintText: 'ปีการศึกษา',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 2.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 4.0, 16.0, 4.0),
-                          hidesUnderline: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                        child: FlutterFlowDropDown<String>(
-                          controller: _model.dropDownValueController2 ??=
-                              FormFieldController<String>(null),
-                          options: _model.termList,
-                          onChanged: (val) async {
-                            setState(() => _model.dropDownValue2 = val);
-                            setState(() {
-                              _model.termSelected =
-                                  functions.stringToInt(_model.dropDownValue2);
+                              _model.dropDownValueController1?.reset();
                             });
                           },
-                          width: 300.0,
-                          height: 50.0,
-                          textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                          hintText: 'เทอม',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
+                          child: Text(
+                            'ล้างค่า',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  fontSize: 16.0,
+                                  decoration: TextDecoration.underline,
+                                ),
                           ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          elevation: 2.0,
-                          borderColor: FlutterFlowTheme.of(context).alternate,
-                          borderWidth: 2.0,
-                          borderRadius: 8.0,
-                          margin: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 4.0, 16.0, 4.0),
-                          hidesUnderline: true,
-                          isSearchable: false,
-                          isMultiSelect: false,
                         ),
-                      ),
+                      ],
                     ),
                   ],
                 ),
