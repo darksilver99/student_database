@@ -73,15 +73,30 @@ class _ConfirmViewWidgetState extends State<ConfirmViewWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        widget.title!,
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Montserrat',
-                              fontSize: 22.0,
-                            ),
+                      Icon(
+                        Icons.info_rounded,
+                        color: FlutterFlowTheme.of(context).alternate,
+                        size: 36.0,
                       ),
                     ],
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          widget.title!,
+                          textAlign: TextAlign.center,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 22.0,
+                                  ),
+                        ),
+                      ],
+                    ),
                   ),
                   if (widget.detail != null && widget.detail != '')
                     Row(
