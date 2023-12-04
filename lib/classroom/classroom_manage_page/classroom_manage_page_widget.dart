@@ -9,6 +9,7 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'classroom_manage_page_model.dart';
@@ -170,12 +171,29 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
-                    child: Text(
-                      'ห้อง ${widget.classroomParameter?.room} ${widget.classroomParameter?.years?.toString()}/${widget.classroomParameter?.term?.toString()}',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'ห้อง ${widget.classroomParameter?.room}',
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
+                        Text(
+                          '${widget.classroomParameter?.years?.toString()}/${widget.classroomParameter?.term?.toString()}',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 14.0,
+                              ),
+                        ),
+                      ],
                     ),
                   ),
                   InkWell(
@@ -188,17 +206,46 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                         context,
                         widget.classroomParameter?.reference,
                       );
+                      await actions.shareFile(
+                        'aaa',
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Share success.',
+                            style: GoogleFonts.getFont(
+                              'Montserrat',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 22.0,
+                            ),
+                          ),
+                          duration: Duration(milliseconds: 2000),
+                          backgroundColor: FlutterFlowTheme.of(context).success,
+                        ),
+                      );
 
                       setState(() {});
                     },
-                    child: Text(
-                      'Export Excel',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Montserrat',
-                            color: FlutterFlowTheme.of(context).secondary,
-                            fontSize: 16.0,
-                            decoration: TextDecoration.underline,
-                          ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.fileExport,
+                          color: FlutterFlowTheme.of(context).success,
+                          size: 24.0,
+                        ),
+                        Text(
+                          'Export Excel',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Montserrat',
+                                color: FlutterFlowTheme.of(context).secondary,
+                                fontSize: 12.0,
+                                decoration: TextDecoration.underline,
+                              ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
