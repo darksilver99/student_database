@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:share_extend/share_extend.dart';
+
 Future shareFile(String? path) async {
   // Add your function code here!
+  ShareExtend.share(path!, "file");
 }

@@ -207,7 +207,7 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                         widget.classroomParameter?.reference,
                       );
                       await actions.shareFile(
-                        'aaa',
+                        _model.path,
                       );
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -215,7 +215,7 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                             'Share success.',
                             style: GoogleFonts.getFont(
                               'Montserrat',
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: FlutterFlowTheme.of(context).info,
                               fontSize: 22.0,
                             ),
                           ),
