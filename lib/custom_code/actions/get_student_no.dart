@@ -13,6 +13,15 @@ Future<int> getStudentNo(DocumentReference? roomRef) async {
   var rs = await FirebaseFirestore.instance
       .collection('student_list')
       .where('room_ref', isEqualTo: roomRef)
+      .orderBy('no', descending: false)
       .get();
+  if (rs.size == 0) {
+    return 1;
+  }
+  for (var i = 0; i < rs.size; i++) {
+    if (rs.docs[i].data()["no"] != (i + 1)) {
+      return (i + 1);
+    }
+  }
   return (rs.size + 1);
 }
