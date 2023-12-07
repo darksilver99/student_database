@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/components/add_student_from_view_widget.dart';
 import '/components/classroom_detail_view_widget.dart';
+import '/components/confirm_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -20,6 +21,8 @@ class ClassroomManagePageModel
 
   // Stores action output result for [Custom Action - getExcelFile] action in Column widget.
   String? path;
+  // Stores action output result for [Alert Dialog - Custom Dialog] action in Icon widget.
+  bool? isDel;
 
   /// Initialization and disposal methods.
 

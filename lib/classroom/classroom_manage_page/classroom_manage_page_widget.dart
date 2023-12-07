@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/components/add_student_from_view_widget.dart';
 import '/components/classroom_detail_view_widget.dart';
+import '/components/confirm_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -348,10 +349,58 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Text(
-                                      '${listViewStudentListRecord.no.toString()} ${listViewStudentListRecord.prefixName} ${listViewStudentListRecord.firstName} ${listViewStudentListRecord.lastName}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                    Expanded(
+                                      child: Text(
+                                        '${listViewStudentListRecord.no.toString()} ${listViewStudentListRecord.prefixName} ${listViewStudentListRecord.firstName} ${listViewStudentListRecord.lastName}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                    Builder(
+                                      builder: (context) => InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await showAlignedDialog(
+                                            context: context,
+                                            isGlobal: true,
+                                            avoidOverflow: false,
+                                            targetAnchor: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                            followerAnchor:
+                                                AlignmentDirectional(0.0, 0.0)
+                                                    .resolve(Directionality.of(
+                                                        context)),
+                                            builder: (dialogContext) {
+                                              return Material(
+                                                color: Colors.transparent,
+                                                child: ConfirmViewWidget(
+                                                  title: 'ต้องการลบ?',
+                                                ),
+                                              );
+                                            },
+                                          ).then((value) => safeSetState(
+                                              () => _model.isDel = value));
+
+                                          if (_model.isDel!) {
+                                            await listViewStudentListRecord
+                                                .reference
+                                                .delete();
+                                          }
+
+                                          setState(() {});
+                                        },
+                                        child: Icon(
+                                          Icons.delete_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .error,
+                                          size: 24.0,
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
