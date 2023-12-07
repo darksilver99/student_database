@@ -171,14 +171,11 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                       children: [
                         Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 8.0, 0.0),
-                              child: Text(
-                                'ห้อง ${widget.classroomParameter?.room}',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
+                            Text(
+                              'ห้อง ${widget.classroomParameter?.room}',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                             if (widget.classroomParameter?.detail != null &&
                                 widget.classroomParameter?.detail != '')
@@ -219,7 +216,7 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                                       Icons.info_rounded,
                                       color:
                                           FlutterFlowTheme.of(context).primary,
-                                      size: 20.0,
+                                      size: 28.0,
                                     ),
                                   ),
                                 ),
