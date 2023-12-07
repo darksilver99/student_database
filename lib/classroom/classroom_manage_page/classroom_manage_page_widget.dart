@@ -131,7 +131,18 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
               size: 24.0,
             ),
             onPressed: () async {
-              context.pushNamed('ClassroomFromPage');
+              context.pushNamed(
+                'ClassroomFromPage',
+                queryParameters: {
+                  'roomParameter': serializeParam(
+                    widget.classroomParameter,
+                    ParamType.Document,
+                  ),
+                }.withoutNulls,
+                extra: <String, dynamic>{
+                  'roomParameter': widget.classroomParameter,
+                },
+              );
             },
           ),
         ],
