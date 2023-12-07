@@ -131,7 +131,7 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
               size: 24.0,
             ),
             onPressed: () async {
-              context.pushNamed(
+              context.goNamed(
                 'ClassroomFromPage',
                 queryParameters: {
                   'roomParameter': serializeParam(
@@ -215,7 +215,7 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                                       Icons.info_rounded,
                                       color:
                                           FlutterFlowTheme.of(context).primary,
-                                      size: 24.0,
+                                      size: 20.0,
                                     ),
                                   ),
                                 ),
