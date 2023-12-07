@@ -131,7 +131,10 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
               size: 24.0,
             ),
             onPressed: () async {
-              context.goNamed(
+              if (Navigator.of(context).canPop()) {
+                context.pop();
+              }
+              context.pushNamed(
                 'ClassroomFromPage',
                 queryParameters: {
                   'roomParameter': serializeParam(
