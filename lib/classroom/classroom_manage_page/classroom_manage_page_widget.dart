@@ -390,6 +390,10 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                                             await listViewStudentListRecord
                                                 .reference
                                                 .delete();
+                                            await actions.reOrderNo(
+                                              widget.classroomParameter
+                                                  ?.reference,
+                                            );
                                           }
 
                                           setState(() {});
