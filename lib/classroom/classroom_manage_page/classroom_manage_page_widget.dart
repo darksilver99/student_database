@@ -250,20 +250,6 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                       await actions.shareFile(
                         _model.path,
                       );
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            'Share success.',
-                            style: GoogleFonts.getFont(
-                              'Montserrat',
-                              color: FlutterFlowTheme.of(context).info,
-                              fontSize: 22.0,
-                            ),
-                          ),
-                          duration: Duration(milliseconds: 2000),
-                          backgroundColor: FlutterFlowTheme.of(context).success,
-                        ),
-                      );
 
                       setState(() {});
                     },
@@ -276,7 +262,7 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                           size: 24.0,
                         ),
                         Text(
-                          'Export Excel',
+                          'Share Excel',
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
