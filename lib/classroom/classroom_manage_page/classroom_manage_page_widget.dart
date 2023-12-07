@@ -119,44 +119,20 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
               ),
         ),
         actions: [
-          Visibility(
-            visible: widget.classroomParameter?.detail != null &&
-                widget.classroomParameter?.detail != '',
-            child: Builder(
-              builder: (context) => Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  focusColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onTap: () async {
-                    await showAlignedDialog(
-                      context: context,
-                      isGlobal: true,
-                      avoidOverflow: false,
-                      targetAnchor: AlignmentDirectional(0.0, 0.0)
-                          .resolve(Directionality.of(context)),
-                      followerAnchor: AlignmentDirectional(0.0, 0.0)
-                          .resolve(Directionality.of(context)),
-                      builder: (dialogContext) {
-                        return Material(
-                          color: Colors.transparent,
-                          child: ClassroomDetailViewWidget(
-                            detail: widget.classroomParameter?.detail,
-                          ),
-                        );
-                      },
-                    ).then((value) => setState(() {}));
-                  },
-                  child: Icon(
-                    Icons.info_rounded,
-                    color: FlutterFlowTheme.of(context).info,
-                    size: 24.0,
-                  ),
-                ),
-              ),
+          FlutterFlowIconButton(
+            borderColor: FlutterFlowTheme.of(context).primary,
+            borderRadius: 20.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            fillColor: FlutterFlowTheme.of(context).accent1,
+            icon: Icon(
+              Icons.edit_square,
+              color: FlutterFlowTheme.of(context).primaryBackground,
+              size: 24.0,
             ),
+            onPressed: () async {
+              context.pushNamed('ClassroomFromPage');
+            },
           ),
         ],
         centerTitle: true,
@@ -178,9 +154,62 @@ class _ClassroomManagePageWidgetState extends State<ClassroomManagePageWidget> {
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'ห้อง ${widget.classroomParameter?.room}',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 8.0, 0.0),
+                              child: Text(
+                                'ห้อง ${widget.classroomParameter?.room}',
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                            if (widget.classroomParameter?.detail != null &&
+                                widget.classroomParameter?.detail != '')
+                              Builder(
+                                builder: (context) => Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 16.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await showAlignedDialog(
+                                        context: context,
+                                        isGlobal: true,
+                                        avoidOverflow: false,
+                                        targetAnchor:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        followerAnchor:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        builder: (dialogContext) {
+                                          return Material(
+                                            color: Colors.transparent,
+                                            child: ClassroomDetailViewWidget(
+                                              detail: widget
+                                                  .classroomParameter?.detail,
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => setState(() {}));
+                                    },
+                                    child: Icon(
+                                      Icons.info_rounded,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 24.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ],
                         ),
                         Text(
                           '${widget.classroomParameter?.years?.toString()}/${widget.classroomParameter?.term?.toString()}',

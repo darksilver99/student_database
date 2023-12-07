@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,12 @@ import 'classroom_from_page_model.dart';
 export 'classroom_from_page_model.dart';
 
 class ClassroomFromPageWidget extends StatefulWidget {
-  const ClassroomFromPageWidget({Key? key}) : super(key: key);
+  const ClassroomFromPageWidget({
+    Key? key,
+    this.roomParameter,
+  }) : super(key: key);
+
+  final ClassRoomListRecord? roomParameter;
 
   @override
   _ClassroomFromPageWidgetState createState() =>
@@ -29,6 +35,24 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ClassroomFromPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (widget.roomParameter != null) {
+        setState(() {
+          _model.yearsController?.text = widget.roomParameter!.years.toString();
+        });
+        setState(() {
+          _model.termController?.text = widget.roomParameter!.term.toString();
+        });
+        setState(() {
+          _model.roomController?.text = widget.roomParameter!.room;
+        });
+        setState(() {
+          _model.detailController?.text = widget.roomParameter!.detail;
+        });
+      }
+    });
 
     _model.yearsController ??= TextEditingController();
     _model.yearsFocusNode ??= FocusNode();
@@ -84,7 +108,7 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
           },
         ),
         title: Text(
-          'เพิ่มห้องเรียน',
+          widget.roomParameter != null ? 'แก้ไขห้องเรียน' : 'เพิ่มห้องเรียน',
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Montserrat',
                 color: Colors.white,
@@ -359,20 +383,34 @@ class _ClassroomFromPageWidgetState extends State<ClassroomFromPageWidget> {
                                           .validate()) {
                                     return;
                                   }
+                                  if (widget.roomParameter != null) {
+                                    await widget.roomParameter!.reference
+                                        .update(createClassRoomListRecordData(
+                                      updateDate: getCurrentTimestamp,
+                                      updateBy: currentUserReference,
+                                      years: int.tryParse(
+                                          _model.yearsController.text),
+                                      term: int.tryParse(
+                                          _model.termController.text),
+                                      room: _model.roomController.text,
+                                      detail: _model.detailController.text,
+                                    ));
+                                  } else {
+                                    await ClassRoomListRecord.collection
+                                        .doc()
+                                        .set(createClassRoomListRecordData(
+                                          createDate: getCurrentTimestamp,
+                                          createBy: currentUserReference,
+                                          status: 1,
+                                          years: int.tryParse(
+                                              _model.yearsController.text),
+                                          term: int.tryParse(
+                                              _model.termController.text),
+                                          room: _model.roomController.text,
+                                          detail: _model.detailController.text,
+                                        ));
+                                  }
 
-                                  await ClassRoomListRecord.collection
-                                      .doc()
-                                      .set(createClassRoomListRecordData(
-                                        createDate: getCurrentTimestamp,
-                                        createBy: currentUserReference,
-                                        status: 1,
-                                        years: int.tryParse(
-                                            _model.yearsController.text),
-                                        term: int.tryParse(
-                                            _model.termController.text),
-                                        room: _model.roomController.text,
-                                        detail: _model.detailController.text,
-                                      ));
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(

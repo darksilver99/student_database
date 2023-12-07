@@ -47,6 +47,7 @@ Future<String> getExcelFile(
   var rs = await FirebaseFirestore.instance
       .collection('student_list')
       .where('room_ref', isEqualTo: roomRef)
+      .orderBy('no', descending: false)
       .get();
   var excel = Excel.createExcel();
   Sheet sheetObject = excel['Sheet1'];
@@ -61,25 +62,40 @@ Future<String> getExcelFile(
   );
 
   // Add headers
-  List<String> header = ["เลขที่", "ชื่อ-สกุล"];
+  //List<String> header = ["เลขที่", "ชื่อ-สกุล"];
+  List<Map<String, dynamic>> header = [
+    {
+      "text": "เลขที่",
+      "field": "no",
+    },
+    {
+      "text": "คำนำหน้า",
+      "field": "prefix_name",
+    },
+    {
+      "text": "ชื่อ",
+      "field": "first_name",
+    },
+    {
+      "text": "นามสกุล",
+      "field": "last_name",
+    },
+  ];
   for (var i = 0; i < header.length; i++) {
     var cell = sheetObject
         .cell(CellIndex.indexByColumnRow(columnIndex: i, rowIndex: 0));
-    cell.value = TextCellValue(header[i]);
+    cell.value = TextCellValue(header[i]["text"]);
     cell.cellStyle = cellStyle;
   }
 
   // Add body
   for (int i = 0; i < rs.size; i++) {
     for (int j = 0; j < header.length; j++) {
+      var field = header[j]["field"];
       var cell = sheetObject
           .cell(CellIndex.indexByColumnRow(columnIndex: j, rowIndex: i + 1));
       //cell.cellStyle = CellStyle(horizontalAlign: HorizontalAlign.Center);
-      if (j == 0) {
-        cell.value = TextCellValue(rs.docs[i]["no"].toString());
-      } else {
-        cell.value = TextCellValue(rs.docs[i]["first_name"].toString());
-      }
+      cell.value = TextCellValue(rs.docs[i][field].toString());
     }
   }
 
